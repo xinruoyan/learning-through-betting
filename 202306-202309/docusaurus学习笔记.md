@@ -1,0 +1,59 @@
+## 1.安装docusaurus
+
+* 找到docusaurus的官方网站
+
+* 在powershell中输入
+
+  ```js
+  npx create-docusaurus@latest (文件名自定义，默认为my—web) classic
+  ```
+
+## 2.安装完毕之后，通过powesehll中的命令提示打开初始化的原始网页
+
+* 在power shell中切换到项目所在文件夹。
+* 输入命令``` npm start ```。
+
+## 3.熟悉页面结构
+
+* 在power shell中切换到项目所在文件夹。
+
+* 在命令行中输入```code . ```命令。
+
+* 找到一个文件```docuasurus.config.js```,这个文件中包含了需要修改的页面属性（名字、链接、侧边栏等）需要自己一个个去熟悉。
+
+  * ![image-20230703160320106](https://raw.githubusercontent.com/just-createone/images/master/image-20230703160320106.png)
+    文件中有一个```config```属性，在这个属性中有很对键值对，```title```改变的标签页的名字，```tagline```是网页的标语,```favicon```是图标。
+
+  * ![image-20230703162559730](https://raw.githubusercontent.com/just-createone/images/master/image-20230703162559730.png)
+
+    ![image-20230703162630434](https://raw.githubusercontent.com/just-createone/images/master/image-20230703162630434.png)```config```属性中有一个```themeConfig```的属性，这个属性主要是修改```docuasurus```导航栏中的内容，包括导航栏的名字和链接方向，链接的对象与docs文件中的md文件有关。
+
+  * ![image-20230703164142625](https://raw.githubusercontent.com/just-createone/images/master/image-20230703164142625.png)
+    ```footer```属性，页面底部的一些属性修改，可以更改名字，和链接跳转的对象。需要注意的是这里的```to```,指向的是docs中的md文件，而```href```指向的是外部需要的链接。
+
+## 4.目录结构
+
+* 用vscode打开项目文件，在docs文件夹中，对应的md文件都有一个siderbar_position的属性，这个属性是决定文件在网页中显示时所在的位置的，可以通过修改这个属性的值来更改相关文件的位置。
+* docusasurs中的目录结构是根据docs文件夹中的结构自动生成的，也可以手动生成，只需要找到docusasurs中的sidebars.js这个文件，然后将自动生成目录结构的代码注释掉，然后把tutorialSidebar这个目录结构恢复注释。
+  其中tutorialSidebar中的目录文件名必须存在于docs中，否则就会报错。
+
+## 5.将markdown文件复制到docusasurs中
+
+* 选中一篇markdown文件，把文件内容复制到docs文件夹中的相应目录，就能够在网页中看到自己的markdown文章内容了。
+
+## 6.将网站构建部署到github上
+
+* 在github上创建一个仓库。
+* 修改docusaurus.config.js文件中的属性，更改url和baseUrl的配置，如果是要部署到github上，则需要把url更改为github的地址，而baseurl则更改为创建的仓库的名字。 其中organizationName为组织的名字通常为网页地址栏中仓库名字前面的那一部分内容（通常为github账户的用户名）。
+* 在powershell中打开对应目录文件，初次上传需要先将本地文件夹初始化，使用git init初始化文件，使用git status查看初始化文件的内容，是否被添加到了工作目录中，然后再使用git add将文件内容添加到工作目录中（暂存区）。用git commit -m“ ”命令来提交并为上传的这一次操作命名。最后利用新仓库中的提示命令将本地文件内容的网页代码上传到github仓库之中。
+* 执行```npm run deploy```命令，将本地的内容部署到GitHub上，之后就可以在github上的setting中的pages页面看到部署完成之后的内容。
+
+## 7.将GitHub上的源代码内容和网页分开展示
+
+* 首先子啊GitHub上创建一个私有的仓库，这个仓库存储的是自己本地的源代码内容。
+* 其次，再创建一个新的公共仓库，在docusasurs.config.js文件中修改好自己的url、baseurl、organizationName等属性，然后运行npm run deploy，成功将自己本地的内容部署到docusasurs上面。
+* 这样就实现了本地文件和代码分开显示的效果。
+
+## 8.添加更多栏
+
+* 在docusaurus.config.js中的items键值对中多新建几个键值对，然后再在sidebars.js文件中新建相应的键值对（也就是说在items中新建了多少个栏，在sidebars.js中就要建立相应数量的键值对），在页面中就会出现对应的栏。
