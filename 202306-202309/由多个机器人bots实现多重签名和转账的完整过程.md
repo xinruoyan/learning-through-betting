@@ -40,10 +40,15 @@
 
 ###### **第二步：核查多签钱包内的资产状况， 获取多签 utxo**
 
-   **执行**：client.readMultisigOutputs(members， threshold）
+ **执行**：client.readMultisigOutputs(members， threshold）
+
+```
+ client.readMultisigOutputs(members，threshold）
+```
 
  **输出：**
 
+```
   { 
   type: 'multisig_utxo',   //消息类型 多签 utxo
   user_id: '9baed511-faf9-47dc-b6ce-6abe3dfbe5ab',   //查询发起者
@@ -68,12 +73,18 @@
   signed_by: '',
   signed_tx: ''
 }
+```
+
+
 
 ###### **第三步：构建多签交易 raw（未签名的原始交易数据）**
 
 将第二步获得的utxo消息，与输出接收者、资产类别和数量，构建多签交易raw：
 
-**执行**： client.makeMultisignTransaction({input:[{
+**执行**：
+
+```
+ client.makeMultisignTransaction({input:[{
   type: 'multisig_utxo',
   user_id: '9baed511-faf9-47dc-b6ce-6abe3dfbe5ab',
   utxo_id: '216c0606-84eb-38e3-ad32-adbfb8f68ebd',
@@ -104,18 +115,31 @@
     },
   ],
   hint: client.newUUID(),
-});
+  });
+```
+
+
+
 
 **输出**：（raw）
 
+```
 “77770002d4c304ffc3270ee0f3468913bd8027225201f0eccd336d47062d76c6e2b6bb270001d6d3851b9c91172d72a3d948f358b89d8f662e058091dd61e943f39a555e751600010000000000000002000000023a980001f06cce4bb704167f09d05b10df0f739b0bae2959f52859b46d63409f526004d8b7df8ad0338b9dea048de50c0bf2bd57f09142ce18035ec8354385dc1e21175d0003fffe0100000000000402f1c8c00004634fe1c7600a34b399e06f8101d07c66a5b23d0eee4bbf889b9cf2ea4d117cfba8893e5ec2c817055c3a3e9b9445746ee4b9290978d40463edd43a0e6b0b8ec0e575164e6b53c90198a088be4d893f1f2f2f0087d833275afe772dac28563ce74163e7ce8064ec55ad71d975e3f7ef6985a9f9988ea2e11c47060e8d5b889523fe236a0ca2efbd0dd33e6b9606eb69738d27a51667617f7c7da8c35ccc54fde70003fffe03000000015a0000”
+```
+
+
 
 ###### 第四步：通过 raw 构建签名交易请求
 
-**执行**：client.createMultisig( ’sign‘, raw);
+**执行**：
+
+```
+client.createMultisig( ’sign‘, raw);
+```
 
 **输出：**
 
+```
  {
   type: 'multisig_request', //**发起申请消息**
   request_id: '757175cb-a742-4036-bb24-2d0ffb7ca8ea',
@@ -140,14 +164,23 @@
 '77770002d4c304ffc3270ee0f3468913bd8027225201f0eccd336d47062d76c6e2b6bb270001d6d3851b9c91172d72a3d948f358b89d8f662e058091dd61e943f39a555e751600010000000000000002000000023a980001f06cce4bb704167f09d05b10df0f739b0bae2959f52859b46d63409f526004d8b7df8ad0338b9dea048de50c0bf2bd57f09142ce18035ec8354385dc1e21175d0003fffe0100000000000402f1c8c00004634fe1c7600a34b399e06f8101d07c66a5b23d0eee4bbf889b9cf2ea4d117cfba8893e5ec2c817055c3a3e9b9445746ee4b9290978d40463edd43a0e6b0b8ec0e575164e6b53c90198a088be4d893f1f2f2f0087d833275afe772dac28563ce74163e7ce8064ec55ad71d975e3f7ef6985a9f9988ea2e11c47060e8d5b889523fe236a0ca2efbd0dd33e6b9606eb69738d27a51667617f7c7da8c35ccc54fde70003fffe03000000015a0000',  
   created_at: '1970-01-01T00:03:39+00:03',
   code_id: '82db3470-d643-46b6-8537-91ecd2d28a2d'
-}
+  }
+```
+
+
+
 
 ###### 第五步：签名
 
- **执行：**client.signMultisig( request_id: '757175cb-a742-4036-bb24-2d0ffb7ca8ea',);
+ **执行：**
+
+```
+client.signMultisig( request_id: '757175cb-a742-4036-bb24-2d0ffb7ca8ea',);
+```
 
  **输出：**
 
+```
  {
   type: 'multisig_request',
   request_id: '757175cb-a742-4036-bb24-2d0ffb7ca8ea',
@@ -171,13 +204,17 @@
   created_at: '2023-07-18T04:02:15.990932Z',
   code_id: '82db3470-d643-46b6-8537-91ecd2d28a2d'
 }
+```
 
- *首签完成，等待其他多签和转账...*
+
+
+ ***首签完成，等待其他多签和转账...***
 
 2. ##### 第二签 
 
 执行多签第二步，获取utxo 消息（state === “signed”）
 
+```
  {
   type: 'multisig_utxo',
   user_id: '30ec2dc7-76aa-4c3a-83c4-114bbbf3183b',
@@ -201,10 +238,14 @@
   signed_by: '853285a27df68278f0b69417d26507f5f6f3bc12cc1f9e3001b71648e37142b8',
   signed_tx: '77770002d4c304ffc3270ee0f3468913bd8027225201f0eccd336d47062d76c6e2b6bb270001d6d3851b9c91172d72a3d948f358b89d8f662e058091dd61e943f39a555e751600010000000000000002000000023a980001f06cce4bb704167f09d05b10df0f739b0bae2959f52859b46d63409f526004d8b7df8ad0338b9dea048de50c0bf2bd57f09142ce18035ec8354385dc1e21175d0003fffe0100000000000402f1c8c00004634fe1c7600a34b399e06f8101d07c66a5b23d0eee4bbf889b9cf2ea4d117cfba8893e5ec2c817055c3a3e9b9445746ee4b9290978d40463edd43a0e6b0b8ec0e575164e6b53c90198a088be4d893f1f2f2f0087d833275afe772dac28563ce74163e7ce8064ec55ad71d975e3f7ef6985a9f9988ea2e11c47060e8d5b889523fe236a0ca2efbd0dd33e6b9606eb69738d27a51667617f7c7da8c35ccc54fde70003fffe03000000015a0000'
 }
+```
 
 **跳过第三步，带入第二步获得的 ” signed_tx“字符串，执行多签第四步，构建交易签名：**
 
-**执行结果：**{
+**执行结果：**
+
+```
+{
   type: 'multisig_request',
   request_id: '9cd6a576-36a1-40c8-bbbe-2f848d4de0bd',
   user_id: '30ec2dc7-76aa-4c3a-83c4-114bbbf3183b',
@@ -227,11 +268,13 @@
   created_at: '1970-01-01T00:03:39+00:03',
   code_id: 'ca5775a8-0c61-4a18-8f21-dff40804567d'
 }
+```
 
 **执行多签第五步（指令同首签），完成第二签**
 
 执行结果：
 
+```
  {
   type: 'multisig_request',
   request_id: '9cd6a576-36a1-40c8-bbbe-2f848d4de0bd',
@@ -258,10 +301,11 @@
   created_at: '2023-07-18T04:02:21.141114Z',
   code_id: 'ca5775a8-0c61-4a18-8f21-dff40804567d'
 }
+```
 
 ***二签完成，等待三签.....***
 
-2. ##### 第三签
+##### 3. 第三签
 
 第三签与第二签前三步骤是一致的；
 
@@ -269,6 +313,7 @@
 
 **第二步执行结果：**
 
+```
  {
   type: 'multisig_utxo',
   user_id: '57915058-dc64-4973-a7ad-5372c0a88879',
@@ -292,8 +337,11 @@
   signed_by: '853285a27df68278f0b69417d26507f5f6f3bc12cc1f9e3001b71648e37142b8',
   **signed_tx:** '77770002d4c304ffc3270ee0f3468913bd8027225201f0eccd336d47062d76c6e2b6bb270001d6d3851b9c91172d72a3d948f358b89d8f662e058091dd61e943f39a555e751600010000000000000002000000023a980001f06cce4bb704167f09d05b10df0f739b0bae2959f52859b46d63409f526004d8b7df8ad0338b9dea048de50c0bf2bd57f09142ce18035ec8354385dc1e21175d0003fffe0100000000000402f1c8c00004634fe1c7600a34b399e06f8101d07c66a5b23d0eee4bbf889b9cf2ea4d117cfba8893e5ec2c817055c3a3e9b9445746ee4b9290978d40463edd43a0e6b0b8ec0e575164e6b53c90198a088be4d893f1f2f2f0087d833275afe772dac28563ce74163e7ce8064ec55ad71d975e3f7ef6985a9f9988ea2e11c47060e8d5b889523fe236a0ca2efbd0dd33e6b9606eb69738d27a51667617f7c7da8c35ccc54fde70003fffe03000000015a0000'
 }
+```
+
 **第四步执行结果:** 
 
+```
 {
   type: 'multisig_request',
   **request_id: 'a69cee92-d5cb-4db1-99ad-cc3f59e6c2af',**
@@ -320,9 +368,13 @@
   created_at: '1970-01-01T00:03:39+00:03',
   code_id: 'c3cb8867-52dc-465a-8dfb-44f3779bbdea'
 }
+```
+
+
 
 ###### **第五步执行结果：完成签名**
 
+```
  **{**
   type: 'multisig_request',
   request_id: 'a69cee92-d5cb-4db1-99ad-cc3f59e6c2af',
@@ -350,25 +402,35 @@
   created_at: '2023-07-18T04:02:24.409432Z',
   code_id: 'c3cb8867-52dc-465a-8dfb-44f3779bbdea'
 }
+```
 
 **第三签完成签名**
 
 
 
-###### 第六步：将签名完成的交易发送给主网 ，将签名广播出去
+###### 第六步：将签名完成的交易发送给主网 ，将签名hash广播
 
 ##### （注：本步骤最后一个签名完成后，将输出raw_transaction:
 
-**执行**：client.sendRawTransaction(raw_transaction）
+**执行**：
+
+```
+client.sendRawTransaction(raw_transaction）
+```
 
 **输出：**
 
+```
 {
   hash: '853285a27df68278f0b69417d26507f5f6f3bc12cc1f9e3001b71648e37142b8'
 }
+```
+
+
 
 ###### **第七步：查询utxo 获取 状态为”spent“的消息 ，其消息中transaction_hash值与utxo 状态为”unspent“的transaction_hash值相同。**
 
+```
  {
   type: 'multisig_utxo',
   user_id: '57915058-dc64-4973-a7ad-5372c0a88879',
@@ -392,6 +454,7 @@
   signed_by: '853285a27df68278f0b69417d26507f5f6f3bc12cc1f9e3001b71648e37142b8',
   signed_tx: '77770002d4c304ffc3270ee0f3468913bd8027225201f0eccd336d47062d76c6e2b6bb270001d6d3851b9c91172d72a3d948f358b89d8f662e058091dd61e943f39a555e751600010000000000000002000000023a980001f06cce4bb704167f09d05b10df0f739b0bae2959f52859b46d63409f526004d8b7df8ad0338b9dea048de50c0bf2bd57f09142ce18035ec8354385dc1e21175d0003fffe0100000000000402f1c8c00004634fe1c7600a34b399e06f8101d07c66a5b23d0eee4bbf889b9cf2ea4d117cfba8893e5ec2c817055c3a3e9b9445746ee4b9290978d40463edd43a0e6b0b8ec0e575164e6b53c90198a088be4d893f1f2f2f0087d833275afe772dac28563ce74163e7ce8064ec55ad71d975e3f7ef6985a9f9988ea2e11c47060e8d5b889523fe236a0ca2efbd0dd33e6b9606eb69738d27a51667617f7c7da8c35ccc54fde70003fffe03000000015affffff01e0f9361810300bbd0f0688c6cfe09cbc7fca31df251c80fb2ec8dee038c62fd64e9605be4eb0fbd7d74ee2deb909c5aa92d277434014910b0fa51992668ce80700000107'
 }
+```
 
 ​    至此，转账发起、首签、二签、三签，全部由bot通过调用mixin sdk提供的多签API程序完成；查询获得”spent “状态的 utxo消息，检查钱包内的转账记录，其交易hash 与签名hash相符，确认收到由多签钱包转来的”0.00015“USDT。
 
