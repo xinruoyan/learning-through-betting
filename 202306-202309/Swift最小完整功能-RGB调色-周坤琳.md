@@ -3,7 +3,7 @@
 周坤琳	2023/07/27
 
 
-![img](https://kxv36hgn51.feishu.cn/space/api/box/stream/download/asynccode/?code=MjI2NDI4NTZkYzU2OGY2NjExY2RlZjAyZTBmZmM5ZDhfaWZMZkk0UjN0WXB3M01tMG5naHpSbEl5anpzZTk0S1FfVG9rZW46WnlIU2JJRGJQb0xrc1V4RGI5amMySHV4bnNmXzE2OTA0NjYwNjc6MTY5MDQ2OTY2N19WNA)
+![img](https://github.com/zhoukunlin/ImageBed/blob/main/配图库/1.PNG?raw=true)
 
 
 
@@ -45,11 +45,19 @@
 
 > As a small graphic design artists, the colour is very sensitive to this first today to do a simple "colour" function, just toggle the R, G, B three slider will be able to change the colour of the entire background.
 
+
+
+
+
 # **先看效果**
 
 > Let's see the effect first
 
-暂时无法在飞书文档外展示此内容
+![最终效果](https://github.com/zhoukunlin/ImageBed/blob/main/配图库/RGB-app.mp4)
+
+
+
+
 
 # **安装Xcode**
 
