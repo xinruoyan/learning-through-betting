@@ -3,8 +3,9 @@
 周坤琳	2023/07/27
 
 
+![img](https://kxv36hgn51.feishu.cn/space/api/box/stream/download/asynccode/?code=MjI2NDI4NTZkYzU2OGY2NjExY2RlZjAyZTBmZmM5ZDhfaWZMZkk0UjN0WXB3M01tMG5naHpSbEl5anpzZTk0S1FfVG9rZW46WnlIU2JJRGJQb0xrc1V4RGI5amMySHV4bnNmXzE2OTA0NjYwNjc6MTY5MDQ2OTY2N19WNA)
 
-![img](配图库/1.PNG)
+
 
 # **隐于市,独木成琳**
 
@@ -20,13 +21,13 @@
 
 > opening preface
 
-![img](配图库/2.PNG)
+![img](https://kxv36hgn51.feishu.cn/space/api/box/stream/download/asynccode/?code=MWRhZTQwNDU5ZGY1MDgzZTc4NjkwZmZkODI3YTI4MzRfNHNYd0l4d0RoSHpvOWQzeFV4WG43VUFEZGRLRFRpalVfVG9rZW46TktZaGJpamtpb3RSUHB4Y0c5dWNPTEZPbnBiXzE2OTA0NjYwNjc6MTY5MDQ2OTY2N19WNA)
 
 **Swift** **是开发****iOS****应用的编程语言**,通常咱们在学习新东西的时候会去看书、看教程、报培训班、加社群、请教老师……并从基础语法学起.但是这回不一样了,苹果公司也是怕你学不会,还专门开发了学习Swift的游戏Playgrounds
 
 > Swift is the development of iOS applications programming language, usually we learn something new when we will go to read books, watch tutorials, enrolment training courses, plus community, ask the teacher ...... and learn from the basic syntax. But this time it's different, Apple is also afraid that you can't learn, but also developed a special game to learn Swift Playgrounds!
 
-![img](https://kxv36hgn51.feishu.cn/space/api/box/stream/download/asynccode/?code=OTc2MTZhZDNmZTVkODYxOTkxNmNmN2VhYzFjNjZmNzlfSFAyVEZyVXg4amZoYmlXRVp0ZHllNzVuZVpFMXZiVjFfVG9rZW46VlV6YmJJaHJ4b2FDN2F4RTROSmNsUkVRbkJiXzE2OTA0NjM1ODY6MTY5MDQ2NzE4Nl9WNA)
+![img](https://camo.githubusercontent.com/827311792e01f2135d052156472cbe4426b3de846acf16419a7048539a4dd190/68747470733a2f2f6b7876333668676e35312e6665697368752e636e2f73706163652f6170692f626f782f73747265616d2f646f776e6c6f61642f6173796e63636f64652f3f636f64653d4f5463324d545a685a444e6d5a54566b4f4459784f546b784e6d4e6d4e325668597a466a4e6a5a6d4e7a6c665346417956455a7956586734616d5a6f596d6c58525670305a486c6c4e7a56755a5670464d585a69566a4666564739725a573436566c5636596d4a4a61484a34623246444e3246345254524f536d4e73556b5652626b4a69587a45324f5441304e6a4d314f4459364d5459354d4451324e7a45344e6c39574e41)
 
 想玩的小伙伴可以在Apple store 里下载,要的就是**人人能编程,人人能创造,**这大大降低了学习编程的门槛,**学起来跟玩似的**,学习资源也相当丰富,就看你愿意投入多少时间了.
 
