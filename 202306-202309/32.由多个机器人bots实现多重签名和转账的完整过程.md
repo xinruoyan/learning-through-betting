@@ -375,7 +375,7 @@ client.signMultisig( request_id: '757175cb-a742-4036-bb24-2d0ffb7ca8ea',);
 ###### **第五步执行结果：完成签名**
 
 ```
- **{**
+ {
   type: 'multisig_request',
   request_id: 'a69cee92-d5cb-4db1-99ad-cc3f59e6c2af',
   user_id: '57915058-dc64-4973-a7ad-5372c0a88879',
