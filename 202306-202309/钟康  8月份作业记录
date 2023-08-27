@@ -1,0 +1,42 @@
+# 钟康  8月份作业记录
+
+三个月编程学习马上就结束了，过程还是一步步坚持下来，主要仍是依靠视频学习和每章作业来回顾自己学习情况，总的来说，学习效果仍不能独立完成作业，仍需依靠gpt问答或在书中查找相关内容，但相信自己再投入点时间，再积累点，希望学有所成，下面是本月作业记录。
+
+```
+import matplotlib.pyplot as plt
+
+# 计算前5个正整数的立方值
+
+x1 = range(1, 6)
+y1 = [num**3 for num in x1]
+
+# 绘制前5个正整数的立方值
+
+plt.plot(x1, y1, label='First 5 Numbers')
+plt.xlabel('Number')
+plt.ylabel('Cube')
+plt.title('Cube of First 5 Numbers')
+plt.legend()
+plt.show()
+
+# 计算前5000个正整数的立方值
+
+x2 = range(1, 5001)
+y2 = [num**3 for num in x2]
+
+# 绘制前5000个正整数的立方值
+
+plt.plot(x2, y2, label='First 5000 Numbers')
+plt.xlabel('Number')
+plt.ylabel('Cube')
+plt.title('Cube of First 5000 Numbers')
+plt.legend()
+plt.show() 
+```
+
+结果：
+
+![image-20230826234515146](https://raw.githubusercontent.com/dgzbk790119/images99/master/image-20230826234515146.png)
+
+#### 代码解释：首先，我们使用range()函数生成了要计算立方值的正整数范围。在第一个例子中，我们使用range(1, 6)生成1到5的整数序列，而在第二个例子中，我们使用range(1, 5001)生成1到5000的整数序列。然后，我们使用列表推导式[num**3 for num in x]计算每个整数的立方值。这将生成一个包含立方值的列表。接下来，我们使用Matplotlib库绘制图表。使用plt.plot(x, y, label)函数绘制折线图，其中x是横坐标数据，y是纵坐标数据，label是图例标签。我们还使用plt.xlabel()和plt.ylabel()分别设置横坐标和纵坐标的标签，使用plt.title()设置图表的标题，使用plt.legend()显示图例。最后，使用plt.show()函数显示图表。运行代码后，将会分别显示前5个正整数的立方值和前5000个正整数的立方值的折线图。
+
