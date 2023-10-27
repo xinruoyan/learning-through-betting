@@ -1,0 +1,125 @@
+# **Python⼩课知识点总结**
+
+**Q&A**
+
+Q1：代码等于号两边要不要空格，有影响吗
+A：没有影响，要习惯空格，这样更加规范美观，有辨识度，如：
+a = 0
+b = input('输⼊你的问题')
+
+Q2：单引号、双引号、三引号的区别
+A：正常使⽤单引号和双引号都是可以的，三引号表达的是换⾏字符串，会将引号内的
+所有内容打印出来，如：
+
+Q3：直接输⼊了内容不能够运⾏，如直接输⼊ 你好啊，天⽓真好，点击运⾏，结果报
+错
+A：python代码是需要有执⾏的，你好啊，天⽓真好并不是⼀个执⾏操作
+
+Q4：代码⼀直运⾏中
+A：检查⼀下终端是不是可以输⼊，如果代码内有输⼊操作的话，代码会⼀直显示运⾏
+中，需要等待输⼊内容
+
+```python
+print('''你好呀！
+天气真好''')
+```
+Q5：else后⾯不可以加条件
+A：else表达的就是其它所有情况，不可以加条件，加条件的话使⽤的是elif
+
+Q6：if和else⼀定要同时出现吗
+A：不⼀定，它们都可以单独使⽤，else也可以和循环⼀起使⽤，表达循环外的所有情
+况
+
+Q7：int(input())输⼊⼩数为何报错
+A：input输出的是字符串类型，类浮点数字符串如'1.5'中的⼩数点是⽆法被int函数识别
+转换的，所以会报错，int只能转换纯整数字符串
+
+Q8：数据的运算
+A：整数和浮点数是可以直接加减乘除的，字符串如果⽤加法的话会拼在⼀起形成⼀个
+新的字符串，⽤乘法会多次打印如，'2'*7会得到'2222222'，字符串是没有减法和除法
+的
+
+Q9：input⾥⾯要不要加print
+A：不需要，input括号内的内容可以理解为是问题，在运⾏的时候就会把问题打印出
+来，如果加上print的话，就会打印none，这⾥涉及到返回值的问题，⽬前不需要纠结
+
+
+
+**常⻅的⼀些报错类型**
+
+> SyntaxError: unexpected EOF while parsing
+
+#语法错误，多了⽆法解析的符号，检查⼀下是否多了或者少了括号
+
+
+
+> SyntaxError: invalid character in identifier
+
+#语法错误有⽆效标识符，检查⼀下中⽂符号
+
+
+
+> IndexError: list index out of range
+
+#索引错误，超出索引范围，检查⼀下列表是否为空
+
+
+
+> TypeError: must be str, not int
+
+#数据类型错误，该数据不是正确的数据类型，⽐如字符串和数字直接拼接，检查⼀下
+数据类型
+
+
+
+> IndentationError: expected an indented block
+
+#缩进错误，检查⼀下代码的缩进是否正确
+
+
+
+> KeyError: 'fond'
+
+#键错误，字典中没有该的key对应的值，检查⼀下键名或者字典数据是否正确
+
+
+
+> ValueError: substring not found
+
+#值错误，输⼊的数据类型跟要求的不符合
+
+
+
+> NameError: name 'a' is not defined
+
+#未初始化对象，变量没有被定义
+
+
+
+> AttributeError: 'tuple' object has no attribute 'remove'
+
+#属性错误，该对象没有这个属性、⽅法，检查⼀下数据类型
+
+
+
+> SystemExit
+
+#解释器请求退出，出现在exit()函数后
+
+
+
+> IOError
+
+#输⼊/输出操作失败
+
+
+
+> ImportError
+
+#导⼊模块/对象失败，检查⼀下模块是否能够正常使⽤
+
+
+
+> UnicodeDecodeError/UnicodeEncodeError/UnicodeTranslateError
+
+#Unicode 解码/编码/转换/时的错误
