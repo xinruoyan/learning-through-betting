@@ -1,0 +1,85 @@
+# 学习《编程最少必要课程》总结
+
+## 一、知识点
+
+1.搭建环境：下载安装Python解释器和安装VSCode
+
+2.掌握了值、数据容器（字符串、列表、字典）、流程控制以及如何用AI自学解决某个特定问题需要的第三方库。
+
+## 二、从学到用
+
+在我自己用Python解决了实际的问题后，我觉得自己完成了从学到用这个过程。而这个结果是我在学完了最少必要课程之后做到的。
+
+对于我来说，这一次能够实现突破的关键步骤在于第五部分的知识：安装和使用第三方库。书中详细介绍了如何用AI辅助自己找到要解决实际问题的第三方库，以及如何安装和使用第三方库。这一点学会后感觉就跨出了一大步，终于知道了Python可以真实地解决我想要解决的某些工作生活的问题。
+
+## 三、案例分享：
+
+在学完《编程最少必要课程》的项目篇开端后，我想到我有好多TXT文档想要转换成EPUB格式，于是就问了ChatGPT，一开始给到我几个库选择，我就选了其中一个：Calibre, 但是却怎么都安装不上。于是我换了一个：Pypandoc但是接下来我按照AI给到的代码对应修改了一下之后，连连报错，因为时间已经耗费了很多自己精力也不够了。就搁置了。
+
+过了几天我再重新问AI尝试来解决我的需求。这一次AI给的是用Ebooklib 这个库，并给了相应代码，中间也有报错几次，不过都在AI的辅助下解决了，看着最终我的TXT文档一个个都转化成了EPUB格式文档，开心得不得了，两边嘴角都快歪到耳朵边了。最终代码如下：
+
+```
+from ebooklib import epubimport os
+def txt_to_epub(txt_files, epub_folder):for txt_file_path in txt_files:# Open the TXT file and read its contentwith open(txt_file_path, 'r', encoding='utf-8') as txt_file:content = txt_file.read()
+\# Create an EPUB bookbook = epub.EpubBook()
+\# Set the metadata for the EPUB book (you can customize these values)book.set_identifier(os.path.basename(txt_file_path))book.set_title(f'Your EPUB Title - {os.path.basename(txt_file_path)}')book.set_language('en')
+\# Create a new chapter (EpubHtml) for the EPUB bookchapter = epub.EpubHtml(title=f'Chapter 1 - {os.path.basename(txt_file_path)}',file_name=f'chap_{os.path.basename(txt_file_path)}.xhtml',content=content)
+\# Add the chapter to the bookbook.add_item(chapter)
+\# Create a default spine and add the chapter to itbook.spine = [chapter]
+\# Save the EPUB book to a fileepub_filename = os.path.join(epub_folder, f"{os.path.basename(txt_file_path)}.epub")epub.write_epub(epub_filename, book, {}) 
+\# Example usage:txt_folder = 'txt_files_folder' # Replace with the path to your folder containing TXT filesepub_output_folder = 'epub_output_folder' # Replace with the desired output EPUB folder
+txt_files = [os.path.join(txt_folder, file) for file in os.listdir(txt_folder) if file.endswith('.txt')]
+txt_to_epub(txt_files, epub_output_folder)
+```
+
+**实现的结果如下：**
+
+![cedc50d9afbca450d90de259c97b2fc9.png](en-resource://database/11333:0)
+上面的代码虽然我很多都看不懂，但是却不影响它帮我解决了问题。这里学着Mumu在书中拆分代码块的方式，我也将这些代码拆分成以下几个小模块：
+
+**第一步 导入模块**
+
+```from ebooklib import epubimport os```
+
+**第二步 打开并读取TXTfile文件**
+
+```def txt_to_epub(txt_files, epub_folder):for txt_file_path in txt_files:with open(txt_file_path, 'r', encoding='utf-8') as txt_file:content = txt_file.read()```
+
+**第三步 创建一个EPUB**
+
+```book = epub.EpubBook()```
+
+**第四步 为 EPUB 书籍设置元数据（这里自定义的内容好像对结果没有影响）** ```book.set_identifier(os.path.basename(txt_file_path))book.set_title(f'Your EPUB Title - {os.path.basename(txt_file_path)}')book.set_language('en')```
+
+**第五步 在 EPUB 书籍中创建一个新的章节**  
+
+```chapter = epub.EpubHtml(title=f'Chapter 1 - {os.path.basename(txt_file_path)}',file_name=f'chap_{os.path.basename(txt_file_path)}.xhtml', content=content)```  
+
+**第六步 把章节添加到书籍中**
+
+ ```book.add_item(chapter)```
+
+**第七步 创建一个默认的文档阅读顺序，将章节添加其中 **
+
+ ```book.spine = [chapter]```
+
+**第八步 保存EPUB书籍** 
+
+```epub_filename = os.path.join(epub_folder, f"{os.path.basename(txt_file_path)}.epub")epub.write_epub(epub_filename, book, {})```  
+
+**第九步 将自己需要转换的文件路径放进去，执行代码：**
+
+ ```txt_folder = 'txt_files_folder' # Replace with the path to your folder containing TXT filesepub_output_folder = 'epub_output_folder' # Replace with the desired output EPUB folder
+txt_files = [os.path.join(txt_folder, file) for file in os.listdir(txt_folder) if file.endswith('.txt')]
+txt_to_epub(txt_files, epub_output_folder)```
+ ```
+
+## 心得体会
+
+1. 再复杂的代码也是从一个一个的小模块组合起来的。每一个小模块实现需求的一个小部分，最后所有的模块加起来就实现了整个需求。
+
+2. 一群人相互陪跑很重要。这次要不是跟着大家参与打卡，我很难相信自己会独自学完编程最少必要课程并能够跨越到用的阶段。因为自己曾经阅读《自学是门手艺》中途放弃了，后来捡起来又放下了。最大的原因在于遇到问题没有讨论的地方，自己也还不太会问问题。而一群人一起学习，不仅可以在卡到自己怀疑人生时可以询问伙伴，更是会在其他小伙伴的问题中学到知识。
+
+3. 就跟学英语不是目的用英语才是目的一样，学编程也不是目的，用编程解决实际需求才是目的。以前我根本不知道学会编程到底能做什么，虽然我上网查询了一些编程可以实现的项目，但是总感觉有点虚无缥缈。直到这一个月学完Mumu的《编程最少必要课程》，并且自己真的亲自看到自己抄的代码实现了发邮件和转变文档格式的功能，我才真切地感受到编程真的很有用。
+
+**总之，这一个月的学习，让我对编程有了真正好感。虽然现在还算不上真正入门，因为很多基础知识并没有掌握很牢固，但是让我觉得编程不再是遥不可及的技能。感恩这次组织学习的Mumu、爱梅，也感恩一起打卡一起讨论的同学们。**
